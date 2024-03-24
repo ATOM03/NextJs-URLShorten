@@ -27,8 +27,9 @@ export default function Home() {
     if (url.includes("http://") || url.includes("https://")) {
       return url;
     }
-    return "https://" + url;
+    return "http://" + url;
   };
+  console.log(shortUrl);
 
   return (
     <div className="container mx-auto p-4 flex justify-center items-center flex-col min-h-screen">
@@ -51,7 +52,7 @@ export default function Home() {
       {shortUrl && (
         <div className="mt-4">
           <label className="font-bold">Short URL:</label>
-          <a href={shortUrl} target="_blank">
+          <a href={getValidURL(shortUrl)} target="_blank">
             {getValidURL(shortUrl)}
           </a>
         </div>

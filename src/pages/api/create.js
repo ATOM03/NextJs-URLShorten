@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     try {
       const { data, error } = await supabase
         .from("urls")
-        .insert({ id, original_url: originalUrl })
+        .insert([{ id, original_url: originalUrl }])
         .select();
 
       console.log(data, error);
