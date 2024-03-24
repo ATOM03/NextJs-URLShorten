@@ -27,8 +27,6 @@ To shorten a URL, simply navigate to the provided interface or API endpoint and 
 Users with appropriate permissions can access analytics data to track the performance of their shortened URLs. This includes metrics such as the number of clicks, geographic location of users, and referral sources.
 
 
-
-
 ![Uploading vlc-record-2024-03-25-02h30m01s-next-js-url-shorten.vercel.app-GoogleChrome--ezgif.com-optimize.gif…]()
 
 
