@@ -14,15 +14,15 @@ export default async function handler(req, res) {
     try {
       const { data, error } = await supabase
         .from("urls")
-        .insert([{ id, original_url: originalUrl }])
-        .single();
+        .insert({ id, original_url: originalUrl })
+        .select();
 
       console.log(data, error);
 
       if (error) {
         res.status(500).json({ error: "Failed to create short URL" });
       } else {
-        const shortUrl = `${req.headers.host}/${data.id}`;
+        const shortUrl = `${req.headers.host}/${data[0].id}`;
         res.status(200).json({ shortUrl });
       }
     } catch (error) {
