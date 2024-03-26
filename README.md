@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 # URL Shorten Project
 
 This project aims to provide a simple and efficient solution for shortening URLs, making them more manageable and easier to share. With the exponential growth of web content, long URLs can often be cumbersome and prone to errors when shared, especially in contexts such as social media posts or messaging apps.
@@ -40,8 +38,6 @@ To run this project, you will need to add the following environment variables to
 
 
 ## Demo
-
-Insert gif or link to demo
 
 https://next-js-url-shorten.vercel.app/
 ## Installation
