@@ -28,9 +28,9 @@ Users with appropriate permissions can access analytics data to track the perfor
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`API_KEY`
+`SUPABASE_URL`
 
-`ANOTHER_API_KEY`
+`SUPABASE_KEY`
 
 
 ## Demo
