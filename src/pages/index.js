@@ -153,7 +153,7 @@ export default function Home() {
         </div>
       </div>
       <div className="container mx-auto p-4 flex justify-center items-center flex-col min-h-screen">
-        <div className="card w-full h-70 bg-base-100 shadow-xl md:w-1/2 lg:w-1/2 xl:w-1/2">
+        <div className="card w-full h-72 bg-base-100 shadow-xl md:w-1/2 lg:w-1/2 xl:w-1/2">
           <div className="card-body">
             <h1 className="text-2xl font-bold mb-4 text-center ">
               URL Shortener
@@ -197,7 +197,7 @@ export default function Home() {
                     {getValidURL(shortUrl)}
                   </a>
                 </div>
-                <div className="dropdown" onClick={GenerateQRCode}>
+                <div className="dropdown mt-3" onClick={GenerateQRCode}>
                   <div
                     tabIndex={0}
                     role="button"
