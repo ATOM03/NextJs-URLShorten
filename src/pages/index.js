@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Inter, Tektur } from "next/font/google";
 import { useState } from "react";
+import QRCode from "qrcode";
 
 const inter = Inter({ subsets: ["latin"] });
 const validURL = (str) => {
@@ -21,6 +22,8 @@ export default function Home() {
   const [shortUrl, setShortUrl] = useState("");
   const [inputError, setInputError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [qrcode, setQrcode] = useState("");
+  const [qrcodeloading, setQrcodeloading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,7 +58,17 @@ export default function Home() {
     }
     return "http://" + url;
   };
-  console.log(shortUrl);
+
+  const GenerateQRCode = () => {
+    setQrcodeloading(true);
+    QRCode.toDataURL(shortUrl, (err, shortUrl) => {
+      if (err) return console.log(err);
+
+      console.log(shortUrl);
+      setQrcode(shortUrl);
+      setQrcodeloading(false);
+    });
+  };
 
   return (
     <>
@@ -140,7 +153,7 @@ export default function Home() {
         </div>
       </div>
       <div className="container mx-auto p-4 flex justify-center items-center flex-col min-h-screen">
-        <div className="card w-full h-60 bg-base-100 shadow-xl md:w-1/2">
+        <div className="card w-full h-70 bg-base-100 shadow-xl md:w-1/2 lg:w-1/2 xl:w-1/2">
           <div className="card-body">
             <h1 className="text-2xl font-bold mb-4 text-center ">
               URL Shortener
@@ -173,11 +186,37 @@ export default function Home() {
               </div>
             )}
             {shortUrl && (
-              <div className="mt-4 flex justify-center">
-                <label className="font-bold mr-2">Short URL:</label>
-                <a href={getValidURL(shortUrl)} target="_blank">
-                  {getValidURL(shortUrl)}
-                </a>
+              <div className="mt-4 flex flex-col justify-evenly items-center lg:flex-col ">
+                <div className="flex items-center">
+                  <label className="font-bold mr-2">Short URL:</label>
+                  <a
+                    href={getValidURL(shortUrl)}
+                    target="_blank"
+                    className="link link-hover"
+                  >
+                    {getValidURL(shortUrl)}
+                  </a>
+                </div>
+                <div className="dropdown" onClick={GenerateQRCode}>
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn m-1 btn-primary"
+                  >
+                    QR Code
+                    {qrcodeloading && (
+                      <span className="loading loading-spinner"></span>
+                    )}
+                  </div>
+                  <ul
+                    tabIndex={2}
+                    className="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52"
+                  >
+                    <li>
+                      <img src={qrcode}></img>
+                    </li>
+                  </ul>
+                </div>
               </div>
             )}
           </div>
