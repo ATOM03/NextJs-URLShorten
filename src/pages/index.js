@@ -61,7 +61,7 @@ export default function Home() {
 
   const GenerateQRCode = () => {
     setQrcodeloading(true);
-    QRCode.toDataURL(shortUrl, (err, shortUrl) => {
+    QRCode.toDataURL(getValidURL(shortUrl), (err, shortUrl) => {
       if (err) return console.log(err);
 
       console.log(shortUrl);
