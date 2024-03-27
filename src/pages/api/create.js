@@ -17,7 +17,7 @@ export default async function handler(req, res) {
         .insert([{ id, original_url: originalUrl }])
         .select();
 
-      console.log(data, error);
+      // console.log(data, error);
 
       if (error) {
         res.status(500).json({ error: "Failed to create short URL" });

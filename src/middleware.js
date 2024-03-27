@@ -26,7 +26,7 @@ export default async function handler(req) {
         .eq("id", id)
         .single();
 
-      console.log(data, error);
+      // console.log(data, error);
 
       if (!error) {
         const shortUrl = data.original_url;
